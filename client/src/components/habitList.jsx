@@ -8,8 +8,6 @@ const HabitList = ({ habits, onDelete }) => {
                 <HabitItem
                     key={habit.id}
                     habit={habit}
-                    onComplete={() => onComplete(habit.id)}
-                    onDelete={() => onDelete(habit.id)}
                 />
             ))}
         </ul>
