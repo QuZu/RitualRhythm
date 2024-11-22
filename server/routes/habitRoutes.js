@@ -1,13 +1,19 @@
 const express = require('express');
-const { getHabits, createHabit, updateHabit, deleteHabit, markComplete } = require('../controllers/habitController');
+const {
+  getAllHabits,
+  createHabit,
+  updateHabit,
+  deleteHabit,
+  markComplete,
+} = require('../controllers/habitController');
 
 const router = express.Router();
 
 // CRUD Operations
-router.get('/', getHabits);
-router.post('/', createHabit);
-router.put('/:id', updateHabit);
-router.delete('/:id', deleteHabit);
-router.patch('/:id/complete', markComplete);
+router.get('/', getAllHabits); // Get all habits
+router.post('/', createHabit); // Create a habit
+router.put('/:id', updateHabit); // Update a habit
+router.delete('/:id', deleteHabit); // Delete a habit
+router.patch('/:id/complete', markComplete); // Mark habit as complete
 
 module.exports = router;

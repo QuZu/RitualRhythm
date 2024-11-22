@@ -9,7 +9,7 @@ exports.getAllHabits = (req, res) => {
 exports.createHabit = (req, res) => {
     const myHabit =  { id: Date.now(), ...req.body, completedDates: [] };
     habits.push(myHabit);
-    res.status(201).json(habit);
+    res.status(201).json(myHabit);
 };
 
 // Update a existing habit
@@ -41,16 +41,15 @@ exports.deleteHabit = (req, res) => {
 // Mark a habit as complete
 exports.markComplete = (req, res) => {
     const { id } = req.params;
-    const index = habits.findIndex(habit => habit.id == id);
-    const today = new Date().toISOString().split('T')[0];
+    const index = habits.findIndex((habit) => habit.id == id);
     if (index > -1) {
-        const today = new Date().toISOString().split('T')[0];
-        if (!habits[index].completedDates.includes(today)) {
-            habits[index].completedDates.push(today);
-        }
-        res.json(habits[index]);
+      const today = new Date().toISOString().split('T')[0];
+      if (!habits[index].completedDates.includes(today)) {
+        habits[index].completedDates.push(today);
+      }
+      res.json(habits[index]);
+    } else {
+      res.status(404).send('Habit not found');
     }
-    else {
-        res.status(404).send('Habit not found');
-    }
-};
+  };
+  
