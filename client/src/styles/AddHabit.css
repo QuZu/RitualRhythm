@@ -1,7 +1,7 @@
 /* Container styling */
 .add-habit-container {
   padding: 2rem;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .add-habit-title {
@@ -20,18 +20,22 @@
 }
 
 .add-habit-input,
-.add-habit-textarea,
 .add-habit-select {
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
   width: 100%;
 }
 
 .add-habit-textarea {
   height: 100px;
   resize: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  width: 100%;
 }
 
 .add-habit-button {
@@ -58,4 +62,38 @@
 .add-habit-error {
   color: red;
   text-align: center;
+}
+.weekdays-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.weekday-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.weekday-button.selected {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+/* Hover efekti */
+.weekday-button:hover {
+  background-color: #e6e6e6;
+}
+.weekdays-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #121111;
 }
