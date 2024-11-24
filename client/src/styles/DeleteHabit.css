@@ -5,15 +5,24 @@
   .delete-habit-title {
     font-size: 2rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
   
   .delete-habit-list {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60%;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0.2rem;
   }
-  
-  .delete-habit-item {
+  .delete-habit-info{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    list-style: none;
+    font-size: 1.5rem;
+  }
+  .delete-habit-item.completed {
     padding: 1rem;
     margin: 0.5rem 0;
     border: 1px solid #ccc;
@@ -22,7 +31,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff; 
+    background-color: #bdfabd; 
+  }
+  .delete-habit-item.uncompleted {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdd1d1; 
   }
   
   .delete-habit-item h3 {
