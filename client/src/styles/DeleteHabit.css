@@ -18,11 +18,11 @@
     margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow for box-like effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff; /* Makes it look more like a card */
+    background-color: #fff; 
   }
   
   .delete-habit-item h3 {
@@ -39,8 +39,9 @@
     background-color: red;
     color: white;
     padding: 0.5rem 1rem;
+    margin: 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }

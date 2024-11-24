@@ -52,7 +52,8 @@ const DeleteHabit = () => {
             <li key={habit.id} className="delete-habit-item">
               <div>
                 <h3>{habit.name}</h3>
-                <p>{habit.description}</p>
+                <h4><b>{"Habit Day: "}</b>{habit.day}</h4>
+                <p><b>{"Description: "}</b>{habit.description}</p>
               </div>
               <button
                 onClick={() => handleDeleteHabit(habit.id)}
