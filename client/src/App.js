@@ -10,23 +10,25 @@ import DeleteHabit from './pages/DeleteHabit';
 function App() {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
-    <nav>
-          <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none', padding: 0 }}>
-            <li>
-              <Link to="/">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/add">Add</Link>
-            </li>
-            <li>
-              <Link to="/delete">Delete</Link>
-            </li>
-          </ul>
-    </nav>
+      <nav className="main-navbar">
+        <ul className="main-navbar-list">
+          <li className="main-navbar-item">
+            <Link to="/" className="main-navbar-link">Dashboard</Link>
+          </li>
+          <li className="main-navbar-item">
+            <Link to="/add" className="main-navbar-link">Add Habit</Link>
+          </li>
+          <li className="main-navbar-item">
+            <Link to="/delete" className="main-navbar-link">Delete Habit</Link>
+          </li>
+        </ul>
+      </nav>
+
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/add" element={<AddHabit />} />
       <Route path="/delete" element={<DeleteHabit />} />
+      <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
     </React.Suspense>
   );
