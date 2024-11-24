@@ -11,7 +11,7 @@ const DeleteHabit = () => {
   useEffect(() => {
     const fetchHabits = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/habits');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/habits`);
         const sortedHabits=response.data.sort((a, b) => {
           const dateA = new Date(a.openDate);
           const dateB = new Date(b.openDate);
@@ -31,7 +31,7 @@ const DeleteHabit = () => {
   const handleDeleteHabit = async (id) => {
     if (window.confirm('Are you sure you want to delete this habit?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/habits/${id}`);
+        await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/habits/${id}`);
         setHabits(habits.filter((habit) => habit.id !== id));
         setSuccessMessage('Habit deleted successfully!');
       } catch (error) {

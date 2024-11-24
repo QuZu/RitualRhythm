@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 const HabitForm = ({ onSubmit }) => {
     const [name, setName] = useState('');
@@ -6,6 +6,17 @@ const HabitForm = ({ onSubmit }) => {
     const [selectedDays, setSelectedDays] = useState([]);
     const [successMessage, setSuccessMessage] = useState('');
   
+
+
+    useEffect(() => {
+      if (successMessage) {
+        const timer = setTimeout(() => {
+          setSuccessMessage(''); 
+        }, 3000);
+  
+        return () => clearTimeout(timer);
+      }
+    }, [successMessage]);
     const handleSubmit = async (e) => {
       e.preventDefault();
   
@@ -17,7 +28,7 @@ const HabitForm = ({ onSubmit }) => {
       const newHabit = { name, description, days: selectedDays };
   
       try {
-        const response = await axios.post('http://localhost:5000/api/habits', newHabit);
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/habits`, newHabit);
         if (response.status === 201) {
           setSuccessMessage('Habit added successfully!');
           setName('');
