@@ -1,6 +1,7 @@
 module.exports = {
     id: Number,
     name: String,
+    openDate: Date,
     description: String,
-    completedDates: Array,
+    completedDate: Date,
 };
