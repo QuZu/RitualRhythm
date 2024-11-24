@@ -22,16 +22,13 @@
 
 .dashboard-table td {
   width: 14.28%; /* 100% / 7 */
-  height: 2rem;
   border: 1px solid #ddd;
   padding: 0.5rem;
-  text-align: center;
   border-bottom: none;
   border-top: none;
-  font-size: 1.2rem;
 }
 
-.dashboard-table th {
+.dashboard-table thead {
   position: sticky;
   top: 0;
   z-index: 2;

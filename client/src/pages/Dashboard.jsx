@@ -11,6 +11,8 @@ const Dashboard = () => {
       try {
         const response = await axios.get('http://localhost:5000/api/habits');
         setHabits(response.data);
+        console.log('habits:', response.data);
+        
       } catch (error) {
         console.error('Error fetching habits:', error);
       }
@@ -41,13 +43,17 @@ const Dashboard = () => {
     day,
     openTasks: habits
       .filter((habit) => habit.day === day && !habit.completedDate) 
-      .sort((a, b) => b.sequence - a.sequence),
+      .sort((a, b) => {  
+      const dateA = new Date(a.openDate);
+      const dateB = new Date(b.openDate);
+      return dateA - dateB; 
+    }),
     completedTasks: habits
       .filter((habit) => habit.day === day && habit.completedDate) 
       .sort((a, b) => {
         const dateA = new Date(a.completedDate);
         const dateB = new Date(b.completedDate);
-        return dateA - dateB; 
+        return dateB - dateA; 
       }),
   }));
   
@@ -65,11 +71,13 @@ for (let rowIndex = 0; rowIndex < maxRows; rowIndex++) {
               habit={dayGroup.openTasks[rowIndex]}
               onComplete={() => handleComplete(dayGroup.openTasks[rowIndex].id)}
               isCompleted={false}
+              openTime={dayGroup.openTasks[rowIndex].openDate}
             />
           ) : rowIndex - dayGroup.openTasks.length < dayGroup.completedTasks.length ? (
             <HabitItem
               habit={dayGroup.completedTasks[rowIndex - dayGroup.openTasks.length]}
               isCompleted={true}
+              openTime={dayGroup.completedTasks[rowIndex - dayGroup.openTasks.length].openDate}
               completionTime={dayGroup.completedTasks[rowIndex - dayGroup.openTasks.length].completedDate}
             />
           ) : ( null
@@ -80,20 +88,18 @@ for (let rowIndex = 0; rowIndex < maxRows; rowIndex++) {
   );
 }
 
-
-
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">Weekly Habit Tracker</h1>
       <div className='scrollable-tbody'>
       <table className="dashboard-table">
-        <th>
+        <thead>
           <tr>
             {days.map((day) => (
               <th key={day}>{day}</th>
             ))}
           </tr>
-        </th>
+        </thead>
         <tbody>
           {rows}
         </tbody>
