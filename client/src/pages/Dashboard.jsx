@@ -11,7 +11,6 @@ const Dashboard = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/habits`);
         setHabits(response.data);
-        console.log('habits:', response.data);
         
       } catch (error) {
         console.error('Error fetching habits:', error);
@@ -26,7 +25,6 @@ const Dashboard = () => {
     try {
       const response = await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/api/habits/${id}/complete`);
       const updatedHabit = response.data;
-      console.log('updatedHabit:', updatedHabit);
       
       const updatedHabits = habits.map((habit) =>
         habit.id === updatedHabit.id ? updatedHabit : habit

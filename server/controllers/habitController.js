@@ -29,19 +29,6 @@ exports.createHabit = (req, res) => {
   res.status(201).json(newHabits);
 }
 
-// Update a existing habit
-exports.updateHabit = (req, res) =>{
-    const { id } = req.params;
-    const index = habits.findIndex(habit => habit.id == id);
-    if (index > -1) {
-        habits[index] = { ...habits[index], ...req.body };
-        res.json(habits[index]);
-    } 
-    else {
-        res.status(404).send('Habit not found');
-    }
-}
-
 // Delete a habit
 exports.deleteHabit = (req, res) =>{
     const { id } = req.params;
@@ -61,7 +48,6 @@ exports.markComplete = (req, res) => {
     const index = habits.findIndex((habit) => habit.id == id);
     if (index > -1) {
       const completionTime = new Date().toISOString();
-      console.log('completionTime:', completionTime);
       
       habits[index].completedDate = completionTime;
       res.status(200).json(
