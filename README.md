@@ -60,7 +60,7 @@ RitualRhythm is a habit-tracking web application designed to help users create, 
 ```
 ## :hammer: How to build and run the software?
 ####  If you want to build on your local machine:
-1.  [Follow this instructions](#how-to-obtain-the-source-code) to **get source code**
+1.  [Follow this instructions](#electric_plug-how-to-obtain-the-source-code) to **get source code**
 2. **Install Dependencies**
     ##### Frontend:
     ```bash
