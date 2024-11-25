@@ -9,13 +9,22 @@ const DeleteHabit = () => {
 
   // Fetch habits from the backend
   useEffect(() => {
+    if (successMessage || errorMessage) {
+      const timer = setTimeout(() => {
+        setSuccessMessage(''); 
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [successMessage, errorMessage]);
+  useEffect(() => {
     const fetchHabits = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/habits`);
         const sortedHabits=response.data.sort((a, b) => {
           const dateA = new Date(a.openDate);
           const dateB = new Date(b.openDate);
-          return dateB - dateA;
+          return dateA - dateB;
         });
         setHabits(sortedHabits);
       } catch (error) {
@@ -45,12 +54,15 @@ const DeleteHabit = () => {
     <div className="delete-habit-container">
       <h1 className="delete-habit-title">Delete Habit</h1>
       <p className='delete-habit-info'>Select a habit to delete from the list below:</p>
-
+      <div className="habit-status-buttons">
+        <div className="status-button-completed">Completed</div>
+        <div className="status-button-uncompleted">Uncompleted</div>
+      </div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}
 
       {habits.length === 0 ? (
-        <p>No habits to display. Add a habit first!</p>
+        <p className='delete-habit-info'>No habits to display. Add a habit first!</p>
       ) : (
         <ul className="delete-habit-list">
           {habits.map((habit) => (

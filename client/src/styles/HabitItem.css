@@ -36,10 +36,10 @@
   }
   
   .default-habit-item-content {
-    justify-content: space-between; 
     align-items: center;
     font-size: 0.7rem;
     display: grid;
+    margin-right: 0;
   }
   
   .habit-description { 

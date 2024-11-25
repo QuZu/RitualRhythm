@@ -9,7 +9,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchHabits = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/habits');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/habits`);
         setHabits(response.data);
         console.log('habits:', response.data);
         
@@ -24,7 +24,7 @@ const Dashboard = () => {
   // Mark a habit as completed
   const handleComplete = async (id) => {
     try {
-      const response = await axios.patch(`http://localhost:5000/api/habits/${id}/complete`);
+      const response = await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/api/habits/${id}/complete`);
       const updatedHabit = response.data;
       console.log('updatedHabit:', updatedHabit);
       
