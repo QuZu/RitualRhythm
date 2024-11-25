@@ -4,8 +4,7 @@ RitualRhythm is a habit-tracking web application designed to help users create, 
 > [!CAUTION]
 > **Follow the instructions below to build and run the project.**
 
----
-### :electric_plug: How to obtain the source code?
+## :electric_plug: How to obtain the source code?
   If you want to obtain the source from GitHub manually: 
   - Click the code button on the right upper side of the repository
   - Download Zip 
@@ -61,7 +60,7 @@ RitualRhythm is a habit-tracking web application designed to help users create, 
 ```
 ## :hammer: How to build and run the software?
 ####  If you want to build on your local machine:
-1.  [Follow this instructions](###how-to-obtain-the-source-code) to **get source code**
+1.  [Follow this instructions](#how-to-obtain-the-source-code) to **get source code**
 2. **Install Dependencies**
     ##### Frontend:
     ```bash
