@@ -89,3 +89,9 @@ RitualRhythm is a habit-tracking web application designed to help users create, 
    node server.js
    ```
 
+## Screenshots:
+![snap](https://github.com/user-attachments/assets/ca5052ce-fb7f-444c-986b-8cf250b3f270)
+![add_Snap](https://github.com/user-attachments/assets/263d50c4-7117-4f0c-a08c-0f298efcdc23)
+![delete_snap](https://github.com/user-attachments/assets/8812aede-5d6e-44f8-834b-83681477d0c6)
+
+
